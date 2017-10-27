@@ -1,14 +1,14 @@
-# `Git`工作流
+# `Git` Workflow
 
-## 目录
+## Table of contents
 
-- `Git`工作流概述
-- `Git`工作流的优势
-- 几种典型的工作流介绍
-    1. 集中式工作流
-    2. 功能分支工作流
-    3. Gitflow工作流
-    4. Forking工作流
+- Overview of `Git` workflow
+- Advantages of `Git` workflow
+- Introduction to some typical workflows
+    1. Central Workflow
+    2. Feature branching Workflow
+    3. Gitflow Workflow
+    4. Forking Workflow
 
 -------
 
