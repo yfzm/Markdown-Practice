@@ -5,10 +5,10 @@
 - [Overview of Git workflow](#overview-of-git-workflow)
 - [Advantages of Git workflow](#advantages-of-git-workflow)
 - [Introduction to some typical workflows](#introduction-to-some-typical-workflows)
-    1. [Centralized Workflow](#1.-**centralized-workflow**)
-    2. [Feature branching Workflow](#2.-**feature-branching-workflow**)
-    3. [Gitflow Workflow](#3.-**gitflow-workflow**)
-    4. [Forking Workflow](#4.-**forking-workflow**)
+    1. [Centralized Workflow](#1-centralized-workflow)
+    2. [Feature branching Workflow](#2-feature-branching-workflow)
+    3. [Gitflow Workflow](#3-gitflow-workflow)
+    4. [Forking Workflow](#4-forking-workflow)
 
 ## Overview of Git workflow
 
