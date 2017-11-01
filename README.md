@@ -5,10 +5,10 @@
 - [Overview of Git workflow](#overview-of-git-workflow)
 - [Advantages of Git workflow](#advantages-of-git-workflow)
 - [Introduction to some typical workflows](#introduction-to-some-typical-workflows)
-    1. [Centralized Workflow](#1.-**centralized-workflow**)
-    2. [Feature branching Workflow](#2.-**feature-branching-workflow**)
-    3. [Gitflow Workflow](#3.-**gitflow-workflow**)
-    4. [Forking Workflow](#4.-**forking-workflow**)
+    1. [Centralized Workflow](#centralized)
+    2. [Feature branching Workflow](#feature)
+    3. [Gitflow Workflow](#gitflow)
+    4. [Forking Workflow](#forking)
 
 ## Overview of Git workflow
 
@@ -32,7 +32,7 @@ Using `Git` as a powerful tool, we can deal with the workflow efficiently.
 
 ## Introduction to some typical workflows
 
-### 1. **Centralized Workflow**
+### <span id="centralized">1. **Centralized Workflow**</span>
 
 #### 1.1 Overview
 
@@ -105,7 +105,7 @@ The Centralized Workflow is great for small teams. The conflict resolution proce
 
 ---------
 
-### 2. **Feature branching Workflow**
+### <span id="feature">2. **Feature branching Workflow**</span>
 
 #### 2.1 Overview
 
@@ -183,7 +183,7 @@ Utilizing `git rebase` during the review and merge stages of a feature branch wi
 
 ---------
 
-### 3. **Gitflow Workflow**
+### <span id="gitflow">3. **Gitflow Workflow**</span>
 
 #### 3.1 Overview
 
@@ -359,7 +359,7 @@ The overall flow of Gitflow is:
 
 ------------
 
-### 4. **Forking Workflow**
+### <span id="forking">4. **Forking Workflow**</span>
 
 #### 4.1 Overview
 
