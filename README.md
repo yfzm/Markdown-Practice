@@ -2,25 +2,23 @@
 
 ## Table of contents
 
-- Overview of Git workflow
-- Advantages of Git workflow
-- Introduction to some typical workflows
-    1. Centralized Workflow
-    2. Feature branching Workflow
-    3. Gitflow Workflow
-    4. Forking Workflow
-
--------
+- [Overview of Git workflow](#overview-of-git-workflow)
+- [Advantages of Git workflow](#advantages-of-git-workflow)
+- [Introduction to some typical workflows](#introduction-to-some-typical-workflows)
+    1. [Centralized Workflow](#1.-**centralized-workflow**)
+    2. [Feature branching Workflow](#2.-**feature-branching-workflow**)
+    3. [Gitflow Workflow](#3.-**gitflow-workflow**)
+    4. [Forking Workflow](#4.-**forking-workflow**)
 
 ## Overview of Git workflow
+
+![Git Workflow](images/workflow.png)
 
 Workflow is the definition, execution and automation of business processes where tasks, information or documents are passed from one participant to another for action, according to a set of procedural rules.
 
 `Git` is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development.
 
 Using `Git` as a powerful tool, we can deal with the workflow efficiently.
-
-------
 
 ## Advantages of Git workflow
 
@@ -32,19 +30,21 @@ Using `Git` as a powerful tool, we can deal with the workflow efficiently.
 
 4. Git workflow ensures a clean and decipherable state of branches at any given moment in the project’s life-cycle.
 
--------
-
 ## Introduction to some typical workflows
 
 ### 1. **Centralized Workflow**
 
 #### 1.1 Overview
 
+![Centralized Workflow](images/cen.svg)
+
 The Centralized Workflow uses a central repository to serve as the single point-of-entry for all changes to the project. The default development branch is called `master` and all changes are committed into this branch. This workflow doesn’t require any other branches besides `master`.
 
 #### 1.2 How it works
 
 1. **Initialize the central repository**
+
+    ![Initialize](images/cen_init.svg)
 
     First, someone needs to create the central repository on a server. If it’s a new project, you can initialize an empty repository. Otherwise, you’ll need to import an existing Git or SVN repository.   
     
@@ -88,6 +88,8 @@ The Centralized Workflow uses a central repository to serve as the single point-
 
 6. **Managing conflicts**
 
+    ![Managing conflicts](images/cen_conflicts.svg)
+
     The central repository represents the official project, so its commit history should be treated as sacred and immutable. If a developer’s local commits diverge from the central repository, `Git` will refuse to push their changes because this would overwrite official commits.   
    
     Before the developer can publish their feature, they need to fetch the updated central commits and rebase their changes on top of them. This is like saying, “I want to add my changes to what everyone else has already done.” The result is a perfectly linear history.
@@ -101,9 +103,13 @@ As you can see, it’s possible to replicate a traditional `Subversion` developm
 
 The Centralized Workflow is great for small teams. The conflict resolution process detailed above can form a bottleneck as your team scales in size. If your team is comfortable with the Centralized Workflow but wants to streamline its collaboration efforts, it's definitely worth exploring the benefits of the [Feature Branch Workflow](#2.-**feature-branching-workflow**) By dedicating an isolated branch to each feature, it’s possible to initiate in-depth discussions around new additions before integrating them into the official project.
 
+---------
+
 ### 2. **Feature branching Workflow**
 
 #### 2.1 Overview
+
+![Feature branching Workflow](images/bran.svg)
 
 The Feature Branch Workflow assumes a central repository, and `master` represents the official project history. Instead of committing directly on their local `master` branch, developers create a new branch every time they start work on a new feature. Feature branches should have descriptive names, like `animated-menu-items` or `issue-#1061`. The idea is to give a clear, highly-focused purpose to each branch. Git makes no technical distinction between the master branch and feature branches, so developers can edit, stage, and commit changes to a feature branch.
  
@@ -175,6 +181,8 @@ This workflow helps organize and track branches that are focused on business dom
 
 Utilizing `git rebase` during the review and merge stages of a feature branch will create enforce a cohesive Git history of feature merges. A feature branching model is a great tool to promote collaboration within a team environment.
 
+---------
+
 ### 3. **Gitflow Workflow**
 
 #### 3.1 Overview
@@ -184,6 +192,8 @@ Gitflow is really just an abstract idea of a Git workflow. This means it dictate
 #### 3.2 How it works
 
 ##### 3.2.1 Develop and Master Branches
+
+![Develop and Master Branches](images/git_develop.svg)
 
 Instead of a single `master` branch, this workflow uses two branches to record the history of the project. The `master` branch stores the official release history, and the `develop` branch serves as an integration branch for features. It's also convenient to tag all commits in the `master` branch with a version number.   
 
@@ -218,6 +228,8 @@ master
 ```
 
 ##### 3.2.2 Feature Branches
+
+![Feature Branches](images/git_feature.svg)
 
 Each new feature should reside in its own branch, which can be pushed to the central repository for backup/collaboration. But, instead of branching off of `master`, `feature` branches use `develop` as their parent branch. When a feature is complete, it gets merged back into develop. Features should never interact directly with master.
 
@@ -254,6 +266,8 @@ Note that `feature` branches combined with the `develop` branch is, for all inte
     ```
 
 ##### 3.2.3 Release Branches
+
+![Release Branches](images/git_release.svg)
 
 Once `develop` has acquired enough features for a release (or a predetermined release date is approaching), you fork a `release` branch off of `develop`. Creating this branch starts the next release cycle, so no new features can be added after this point—only bug fixes, documentation generation, and other release-oriented tasks should go in this branch. Once it's ready to ship, the `release` branch gets merged into `master` and tagged with a version number. In addition, it should be merged back into `develop`, which may have progressed since the `release` was initiated.
 
@@ -295,6 +309,8 @@ git flow release finish '0.1.0'
 ```
 
 ##### 3.2.4 **Hotfix Branches**
+
+![Hotfix Branches](images/git_hotfix.svg)
 
 Maintenance or “`hotfix`” branches are used to quickly patch production releases. `Hotfix` branches are a lot like `release` branches and `feature` branches except they're based on `master` instead of `develop`. This is the only branch that should fork directly off of `master`. As soon as the fix is complete, it should be merged into both `master` and `develop` (or the current `release` branch), and `master` should be tagged with an updated version number.
 
@@ -341,9 +357,13 @@ The overall flow of Gitflow is:
 6. If an issue in `master` is detected a `hotfix` branch is created from `master`
 7. Once the `hotfix` is complete it is merged to both `develop` and `master`
 
+------------
+
 ### 4. **Forking Workflow**
 
 #### 4.1 Overview
+
+![Forking Workflow](images/fork.svg)
 
 As in the other Git workflows, the Forking Workflow begins with an official public repository stored on a server. But when a new developer wants to start working on the project, they do not directly clone the official repository.
 
@@ -413,6 +433,8 @@ It’s important to understand that the notion of an “official” repository i
     Since developers should be working in a dedicated feature branch, this should generally result in a fast-forward merge.
 
 4. **Making a Pull Request**
+
+    ![Pull Request](images/fork_pull.svg)
 
     Once a developer is ready to share their new feature, they need to do two things. First, they have to make their contribution accessible to other developers by pushing it to their public repository. Their origin remote should already be set up, so all they should have to do is the following:
     
